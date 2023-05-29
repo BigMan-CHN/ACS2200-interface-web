@@ -1,0 +1,69 @@
+arm-hisiv400-linux-g++ -c -pipe -O2 -Wall -W -fPIC  -I. -I../MPS/sqlite-autoconf-3130000/install/include -I../libcommon_1.69.0/src -I../libcommon_1.69.0/src/LibXML -I../libcommon_1.69.0/src/LibTransmit -I../libMLog -I../log4cplus-1.2.1/include -I../cJSONFiles/cJSON -I../boost_1_69_0 -I../../linkpi/skyvis/3531A/qt-everywhere-opensource-src-5.5.1/H4/mkspecs/hisiv400 -o CGetHostConfig.o method/CGetHostConfig.cpp
+In file included from method/CGetHostConfig.cpp:1:0:
+method/CGetHostConfig.h: In constructor ‘CGetHostConfig::CGetHostConfig(std::string, int, int)’:
+method/CGetHostConfig.h:153:12: warning: ‘CGetHostConfig::_channels’ will be initialized after [-Wreorder]
+     cJSON *_channels;
+            ^
+method/CGetHostConfig.h:145:12: warning:   ‘std::string CGetHostConfig::_ip’ [-Wreorder]
+     string _ip;
+            ^
+method/CGetHostConfig.cpp:4:1: warning:   when initialized here [-Wreorder]
+ CGetHostConfig::CGetHostConfig(string ip, int port, int timeOut)
+ ^
+method/CGetHostConfig.cpp: In member function ‘InterfaceResCode CGetHostConfig::GetHostConfig(std::string&)’:
+method/CGetHostConfig.cpp:45:35: error: no matching function for call to ‘CGetHostConfig::ConvertCDATA2CJSONPost(char [1024])’
+     ConvertCDATA2CJSONPost(cResult);
+                                   ^
+method/CGetHostConfig.cpp:45:35: note: candidate is:
+In file included from method/CGetHostConfig.cpp:1:0:
+method/CGetHostConfig.h:80:10: note: bool CGetHostConfig::ConvertCDATA2CJSONPost(SVS::CData&, char*)
+     bool ConvertCDATA2CJSONPost(CData &oResult, char *cResult);
+          ^
+method/CGetHostConfig.h:80:10: note:   candidate expects 2 arguments, 1 provided
+method/CGetHostConfig.cpp: In member function ‘bool CGetHostConfig::ConvertCDATA2CJSONPost(SVS::CData&, char*)’:
+method/CGetHostConfig.cpp:122:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (std::size_t i = 0; i < size; i++)
+                                 ^
+method/CGetHostConfig.cpp: In member function ‘bool CGetHostConfig::ConvertCDATA2CJSON(SVS::CData&)’:
+method/CGetHostConfig.cpp:241:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (std::size_t i = 0; i < size; i++)
+                                 ^
+method/CGetHostConfig.cpp: In member function ‘bool CGetHostConfig::convertCData2channelNode(PCNetworkNode, PCChannelNode, PJSONChannelNode)’:
+method/CGetHostConfig.cpp:570:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+In file included from ./interfaceDefines.h:41:0,
+                 from method/CGetHostConfig.h:27,
+                 from method/CGetHostConfig.cpp:1:
+./MPSClientDefine.h: At global scope:
+./MPSClientDefine.h:196:15: warning: ‘std::string getMPSStatusStr(MPSMediaStatus&)’ defined but not used [-Wunused-function]
+ static string getMPSStatusStr(MPSMediaStatus & s){
+               ^
+In file included from method/CGetHostConfig.h:27:0,
+                 from method/CGetHostConfig.cpp:1:
+./interfaceDefines.h:227:15: warning: ‘std::string getCHStatusStr(CHStatus&)’ defined but not used [-Wunused-function]
+ static string getCHStatusStr(CHStatus & s){
+               ^
+./interfaceDefines.h:238:17: warning: ‘CHStatus CovertMediaStatus(MPSMediaStatus&)’ defined but not used [-Wunused-function]
+ static CHStatus CovertMediaStatus(MPSMediaStatus &s){
+                 ^
+./interfaceDefines.h:279:15: warning: ‘std::string GetInterfaceResError(InterfaceResCode)’ defined but not used [-Wunused-function]
+ static string GetInterfaceResError(InterfaceResCode e)
+               ^
+./interfaceDefines.h:407:25: warning: ‘InterfaceResCode CovertResponseCode(SVS::ResponseCode&)’ defined but not used [-Wunused-function]
+ static InterfaceResCode CovertResponseCode(ResponseCode &e){
+                         ^
+./interfaceDefines.h:424:25: warning: ‘InterfaceResCode CovertMPSOperationCode(MPSOperationRes&)’ defined but not used [-Wunused-function]
+ static InterfaceResCode CovertMPSOperationCode(MPSOperationRes &e){
+                         ^
+In file included from ../libcommon_1.69.0/src/LibTransmit/TransmitClient.h:10:0,
+                 from method/CGetHostConfig.h:20,
+                 from method/CGetHostConfig.cpp:1:
+../libcommon_1.69.0/src/LibTransmit/TransmitDefines.h:69:13: warning: ‘void SVS::ResetTransmitHeader(SVS::TransmitHeader&)’ defined but not used [-Wunused-function]
+ static void ResetTransmitHeader(TransmitHeader& h)
+             ^
+../libcommon_1.69.0/src/LibTransmit/TransmitDefines.h:94:18: warning: ‘SVS::SVSSTRING SVS::GetResponseError(SVS::ResponseCode&)’ defined but not used [-Wunused-function]
+ static SVSSTRING GetResponseError(ResponseCode& e)
+                  ^
+Makefile:20130: recipe for target 'CGetHostConfig.o' failed
+make: *** [CGetHostConfig.o] Error 1
