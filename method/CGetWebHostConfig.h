@@ -7,6 +7,9 @@
 #include <iostream>
 #include <string.h>
 
+#include <mntent.h>
+#include <errno.h>
+
 /********************************************************
  * boost usart headers
  *******************************************************/
@@ -40,6 +43,8 @@ public:
      */
     InterfaceResCode GetWebHostConfig(string &sResult);
 
+	InterfaceResCode GetHardDevsState(string &sResult);
+
 private:
     //合成返回信息
     bool ComposeResult(cJSON * result);
@@ -52,6 +57,8 @@ private:
      * @return true：成功，false：失败.
      */
     bool getMPSConfig(CData &oResult, char *cResult);
+
+	bool GetDiskStateInner(CData &oResult, char *cResult);
 
 private:
     //待控制设备ip,端口号,超时时间

@@ -5488,6 +5488,18 @@ string InterfaceProcess::processRequest(string &requestStr)
 		    response.setResponseResults(sResult);
 		    break;
         }
+		else if (!strcmp(sMethod.c_str(), "GetHardDevsState"))
+        {
+		    mLogInfo("GetHardDevsState");
+
+		    //printf("SetRecCtrlStart RecMode %d ChnID %d TaskId %s Title %s\n", RecMode, ChnID, TaskId.c_str(), Title.c_str());
+		    CGetWebHostConfig GetHardDevsState(this->_ip);
+		    string sResult;
+		    resCode = GetHardDevsState.GetHardDevsState(sResult);
+		    //设置返回信息 内容列表
+		    response.setResponseResults(sResult);
+		    break;
+        }
 		else if (!strcmp(sMethod.c_str(), "JsonArrytest"))
         {
             int ArryNums = 20;//JSON数组最大数量

@@ -788,7 +788,7 @@ ResponseCode MPSClient::socketSendSerialCmd(string sModule, string sMethod, CDat
 		//printf("recvfrom error:");
 		mLogError("socketSendSerialCmd：Timeout， recvfrom error:SerialID="<<SerialID);  
 		close(sockfd);
-        return eResponseCodeErrorSend;
+        return eResponseCodeErrorRecvTimeOut;
     }
     close(sockfd);  
     return res;
